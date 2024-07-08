@@ -1,3 +1,5 @@
+import * as inputRegisterForm from '../fixtures/input-register-form.json';
+
 import assert from 'assert';
 
 class RegisterForm {
@@ -36,10 +38,7 @@ describe('Image Registration', () => {
       cy.clearAllLocalStorage();
     });
 
-    const input: { title: string; url: string } = {
-      title: '',
-      url: '',
-    };
+    const input: { title: string; url: string } = inputRegisterForm;
 
     it('Given I am on the image registration page', () => {
       cy.visit('https://erickwendel.github.io/vanilla-js-web-app-example');
