@@ -27,5 +27,5 @@ jobs:
         working-directory: ./in-class-project
 
       - name: Run Cypress tests
-        run: npx run cypress run --browser electron
+        run: npx cypress run --browser electron
         working-directory: ./in-class-project
