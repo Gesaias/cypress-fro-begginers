@@ -1,0 +1,32 @@
+name: Cypress Tests - NextApp
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - './**.yml'
+      - 'nextapp/**.js'
+      - 'nextapp/**.json'
+      - 'nextapp/**.yml'
+
+jobs:
+  nextapp-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.4.0
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./nextapp
+
+      - name: Run Cypress tests
+        run: npx cypress run --browser electron
+        working-directory: ./nextapp
